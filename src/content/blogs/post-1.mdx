@@ -1,0 +1,108 @@
+---
+author: "John Doe"
+date: "2024-06-10"
+title: "MDX with Astro"
+thumbnail: "@/assets/images/post1Thumbnail.jpg"
+categories: ["astro", "mdx", "date-fns"]
+featured: false
+description: "MDX with Astro"
+keywords: "Astro, MDX"
+---
+
+import thumbnail from "@/assets/images/post1Thumbnail.jpg";
+import { Image } from "astro:assets";
+
+## {frontmatter.title}
+
+<Image src={thumbnail} alt={frontmatter.title} class="w-full rounded-lg" />
+
+---
+
+**MDX** has become an essential tool for developers who want to mix Markdown and React components seamlessly. Combined with **Astro**, a modern static site generator, MDX offers incredible power for content-driven websites.
+
+---
+
+## **What is Astro and Why Use MDX?**
+
+Astro is a modern static site generator optimized for delivering lightning-fast websites. It supports multiple frameworks like React, Vue, and Svelte out-of-the-box.
+
+### **MDX**: Markdown + JSX = 🚀  
+MDX extends Markdown syntax, allowing you to write inline React components. It’s perfect for blogs, documentation, and any content that requires interactivity.
+
+---
+
+## **Setting Up MDX in Astro**
+
+To get started with MDX in Astro, install the required integration:
+
+```bash
+    npm install @astrojs/mdx
+```
+
+Add the integration to your Astro config:
+
+```js
+    // astro.config.mjs
+    import { defineConfig } from 'astro/config';
+    import mdx from '@astrojs/mdx';
+
+    export default defineConfig({
+    integrations: [mdx()],
+    });
+```
+
+Now you can use `.mdx` files just like standard Markdown, but with JSX support!
+
+
+## Example: Inline React Components
+
+One of the coolest features of MDX is its ability to embed React components right into your content. Let’s say you want to add a counter button as part of your blog post.
+
+### Counter Example
+
+Here’s the code for a simple counter:
+
+```jsx
+    import { useState } from "react";
+
+    export default function Counter() {
+        const [count, setCount] = useState(0);
+
+        const increment = () => {
+            setCount((prev) => prev + 1);
+        };
+
+        return (
+            <div>
+                <button onClick={increment} style={{ padding: "8px 12px", fontSize: "16px" }}>
+                    Count: {count}
+                </button>
+            </div>
+        );
+    }
+```
+
+## Embedding the Component in MDX
+
+Here’s how the counter is rendered in your blog post:
+
+```jsx
+    <Counter />
+```
+---
+
+## Final Thoughts
+
+Astro + MDX is an amazing combination for modern web development. You can leverage the power of React components while keeping your content clean and readable with Markdown.
+
+### Why Astro + MDX?
+
+- 📝 Write content in Markdown.
+- ⚛️ Add interactivity with React components.
+- 🚀 Build fast, static sites with Astro.
+
+What’s next? Try creating your first MDX blog post with Astro today and explore the possibilities of combining Markdown and React!
+
+**Happy coding! 😊🚀**
+
+---
