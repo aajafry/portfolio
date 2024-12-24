@@ -13,14 +13,14 @@ export const getStaticPaths = async () => {
 };
 
 const {
-    data: { description, keywords },
+    data: {title,  description, keywords },
     ...portfolio
 } = Astro.props;
 
 const { Content } = await portfolio.render();
 ---
 
-<Layout title="Portfolio" description={description} keywords={keywords}>
+<Layout title={title} description={description} keywords={keywords}>
     <SectionHeading
         Heading="Portfolio"
         SubHeading="A Glimpse of My Creative Journey"
